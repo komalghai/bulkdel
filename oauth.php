@@ -6,7 +6,7 @@ error_reporting(-1);
 	session_start();
 echo "<script>alert(211);</script>";
 echo "path=".__DIR__;
-	require 'vendor/autoload.php';
+	require __DIR__.'/vendor/autoload.php';
 
 	require __DIR__.'/conf.php';
 
