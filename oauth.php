@@ -7,7 +7,7 @@ error_reporting(-1);
 echo "<script>alert(211);</script>";
 echo "path=".__DIR__;
 	require __DIR__.'/vendor/autoload.php';
-
+use phpish\shopify;
 	require __DIR__.'/conf.php';
 
 	# Guard: http://docs.shopify.com/api/authentication/oauth#verification
