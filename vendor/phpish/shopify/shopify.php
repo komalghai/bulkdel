@@ -42,7 +42,7 @@
 }
 
 
-	function authorization_url($shop, $api_key, $scopes=array(), $redirect_uri='')
+	function authorization_url($shop, $api_key, $scopes=array(), $redirect_uri)
 	{
 		$scopes = empty($scopes) ? '' : '&scope='.implode(',', $scopes);
 		$redirect_uri = empty($redirect_uri) ? '' : '&redirect_uri='.urlencode($redirect_uri);
