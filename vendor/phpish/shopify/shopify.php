@@ -46,7 +46,7 @@
 	{
 		$scopes = empty($scopes) ? '' : '&scope='.implode(',', $scopes);
 		echo "<script>alert(12)</script>";
-		$redirect_uri = empty($redirect_uri) ? '' : '&redirect_uri='.urlencode($redirect_uri);
+		$redirect_uri = empty($redirect_uri) ? '' : '&redirect_uri='.$redirect_uri;
 		return "https://$shop/admin/oauth/authorize?client_id=$api_key$scopes$redirect_uri";
 	}
 
