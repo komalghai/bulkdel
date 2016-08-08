@@ -7,6 +7,7 @@ echo "<h1>welcome to my app</h1>";
 	require __DIR__.'/vendor/autoload.php';
 	use phpish\shopify;
 	require __DIR__.'/conf.php';
+	echo "code=".$_REQUEST['code'];
 	$access_token = shopify\access_token("https://apptest-32.myshopify.com/", SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
 	echo "<pre>";
 	print_r($access_token);
