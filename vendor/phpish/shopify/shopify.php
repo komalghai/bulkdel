@@ -45,7 +45,7 @@
 	function authorization_url($shop, $api_key, $scopes=array(), $redirect_uri)
 	{
 		$scopes = empty($scopes) ? '' : '&scope='.implode(',', $scopes);
-		echo "<script>alert(12)</script>";
+	//	echo "<script>alert(12)</script>";
 		$redirect_uri = empty($redirect_uri) ? '' : '&redirect_uri='.$redirect_uri;
 		return "https://$shop/admin/oauth/authorize?client_id=$api_key$scopes$redirect_uri";
 	}
