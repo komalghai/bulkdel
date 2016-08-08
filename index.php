@@ -8,8 +8,16 @@
 	try
 	{
 		# Making an API request can throw an exception
-		$products = $shopify('GET /admin/products.json', array('published_status'=>'published'));
-		print_r($products);
+		$shop_obj_url = $api_url . '/admin/shop.json';
+		$shop_content = @file_get_contents( $shop_obj_url );
+		// Decode the JSON
+		$shop_json = json_decode( $shop_content, true );
+		// Create a variable to make the rest of the code more readable
+		$shop = $shop_json['shop'];
+		 echo "Email is:". $shop['email']; 
+		 echo shopify store name:''. $shop['name'];
+		//$products = $shopify('GET /admin/products.json', array('published_status'=>'published'));
+		//print_r($products);
 	}
 	catch (shopify\ApiException $e)
 	{
