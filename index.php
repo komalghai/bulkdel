@@ -1,6 +1,9 @@
 <h1>welcome to my app</h1>
 <?php 
 	session_start();
+	ini_set('display_startup_errors',1);
+	ini_set('display_errors',1);
+	error_reporting(-1);
 	require __DIR__.'/vendor/autoload.php';
 	use phpish\shopify;
 	require __DIR__.'/conf.php';
@@ -9,6 +12,7 @@
 	{
 		# Making an API request can throw an exception
 		$shop_obj_url = $api_url . '/admin/shop.json';
+		echo "hello".$shop_obj_url;
 		$shop_content = @file_get_contents( $shop_obj_url );
 		// Decode the JSON
 		$shop_json = json_decode( $shop_content, true );
