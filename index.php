@@ -1,27 +1,22 @@
-<h1>welcome to my app</h1>
-<?php 
+<?php
+echo "<h1>welcome to my app</h1>";
 	session_start();
-	ini_set('display_startup_errors',1);
+		ini_set('display_startup_errors',1);
 	ini_set('display_errors',1);
 	error_reporting(-1);
 	require __DIR__.'/vendor/autoload.php';
 	use phpish\shopify;
 	require __DIR__.'/conf.php';
+	echo "<pre>";
+	print_r($_SESSION);
+	echo "</pre>";
+	echo "dkcjdskjfckdjgvgv   ".$_SESSION['oauth_token'];
 	$shopify = shopify\client($_SESSION['shop'], SHOPIFY_APP_API_KEY, $_SESSION['oauth_token']);
 	try
 	{
 		# Making an API request can throw an exception
-		$shop_obj_url = $api_url . '/admin/shop.json';
-		echo "hello".$shop_obj_url;
-		$shop_content = @file_get_contents( $shop_obj_url );
-		// Decode the JSON
-		$shop_json = json_decode( $shop_content, true );
-		// Create a variable to make the rest of the code more readable
-		$shop = $shop_json['shop'];
-		 echo "Email is:". $shop['email']; 
-		 echo shopify store name:''. $shop['name'];
-		//$products = $shopify('GET /admin/products.json', array('published_status'=>'published'));
-		//print_r($products);
+		$shop = $shopify('GET /admin/shop.json');
+		print_r($shop);
 	}
 	catch (shopify\ApiException $e)
 	{
@@ -37,4 +32,5 @@
 		print_r($e->getRequest());
 		print_r($e->getResponse());
 	}
+
 	?>
